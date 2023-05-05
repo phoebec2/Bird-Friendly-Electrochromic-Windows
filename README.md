@@ -1,1 +1,1 @@
-# bird-friendly-electrochromic-windows
+# Bird-Friendly Electrochromic Windows
