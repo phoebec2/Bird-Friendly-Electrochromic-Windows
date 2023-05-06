@@ -45,6 +45,7 @@
 			§ However, might actually have unexpected psychological/brain-related effects…?
 		○ Testing
 			§ Possibly a functional demo with UV light (in bird's visible range) and a demo with light in 380-400 nm spectrum (common visible range between humans and birds)
+![image](https://user-images.githubusercontent.com/90936268/236611359-cb4f53b5-ce88-4366-8d6f-9c1ddf144e0c.png)
 
 # 2023-01-30 
 
@@ -109,3 +110,40 @@ Machine shop had concerns with the physical size of the frame…how do we make t
 			§ 4 Electrochromic glass panels
 				□ 1 control pin per glass panel
 ![image](https://user-images.githubusercontent.com/90936268/236611286-e53c29bf-32c3-40de-8fa9-8de94756035f.png)
+
+# 2023-02-15
+
+	- Notes:
+		○ Apparently we are mainly saving white-throated sparrows now…? They're 26-29 cm long
+			§ How far apart should our ultrasonic sensors be?
+	- If we buy 4 of the 8x6 in electrochromic glasses…
+		○ 
+![image](https://user-images.githubusercontent.com/90936268/236611408-89554076-a590-4b0a-a660-cdcef232c562.png)
+
+# 2023-02-22
+
+	- Raspberry Pi
+		○ Can the glass panels be directly connected to the Raspberry Pi's GPIO pins instead?
+		○ How do we communicate floats of distance sensors…?
+	- Updated Number of IO pins needed for microcontroller
+	- 
+		○ 1 pin per electrochromic glass
+		○ (Trigger and echo pins for each ultrasonic sensor)*(6 ultrasonic sensors) = 12 pins
+		○ Raspberry Pi
+			§ 1 interrupt pin + 3 pins (top left, top right, bottom left, bottom right, top half, left half, right half, bottom half) 
+			§ 3 pins
+		○ 12 + 7 + 4 = 23 GPIO pins
+	- Updated Number of IO pins needed for microcontroller
+	- 
+		○ Interface with raspberry pi
+			§ Output: 1 interrupt pin + 4 pins (one per glass block)
+			§ Input: 4 pins (one per glass block)
+		○ We have one spare GPIO pin for Atmega32U-4
+	- Ultrasonic sensor beams for 20x20x92 cm frame
+	- 
+
+	
+	
+
+![image](https://user-images.githubusercontent.com/90936268/236611449-7cd060de-a7be-47bf-9891-f577d379fad4.png)
+
