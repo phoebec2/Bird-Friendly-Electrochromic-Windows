@@ -4,47 +4,6 @@
 
 # 2023-01-26 
 
-	- Planning design of bird-repellent windows
-		○ Bird Detection
-			§ Sensors
-				□ Motion/Object classification
-					® Camera
-				□ Object detection
-					® Grid of 2D IR sensors
-				□ Proximity/Distance
-					® ToF sensors (Time of Flight - Measures distance using an IR beam)
-			§ Overall logic
-				□ If a (warm?) object is detected from basic sensors (proximity, heat), the camera takes a picture of that grid block area (as soon as it can, before the bird flies closer,) for image processing.
-					® Though, this means birds over a certain size (one grid block size, which is probably rare) might not be classified as a bird…however, tall buildings with large glass windows/walls are normally in urban areas, so the range of bird species we will encounter is probably smaller.
-					® Most birds captured by the camera would appear within a certain size range on the image
-				□ https://ieeexplore.ieee.org/document/8932891
-					® ^ Research paper on "image preprocessing and bird detection methods in all dynamic environments using CNN technology."
-						◊ Image preprocessing to separate moving creature from dynamic background and removes background.
-							} Outputs image of moving object
-						◊ CNN determines whether bird is in frame
-				□ Ways to implement image preprocessing…
-					® If no objects are detected in a grid block, the camera captures an image of the grid block area every minute.
-					® So, when an object is within proximity/detected, we can compare (the object and non-object) images and remove the background more accurately.
-					® Finally, make the bird pixels grayscale maybe…? We don't need to classify birds of different colors, just their shape and outline.
-					® Use edge detection so that the birds' outlines stand out much more compared to the birds' feathers/patterns maybe…?
-				□ Image pre-processing should allow for a simpler/less-complex (convolutional) neural network for bird classification/recognition.
-					® *Note: CNN still needs to output true for >1 birds in preprocessed image
-		○ Additional notes
-			§ Things to research:
-				□ Bird reaction time? - minimum distance needed for proximity sensors to alert system
-				□ How long should we repel the bird for (can save some power)?
-				□ What objects (with body warmth) actually fly near tall glass buildings?
-				□ Is the opaque glass only visible from the outside?
-		○ Assumptions:
-			§ System is off in certain weather conditions (rain, snow)
-				□ Birds would not be soaring in the sky anyways
-			§ System is on at night…? (hopefully works if we implement image pre-processing; would need a non-visual repellent though)
-	- Bird Repellent
-		○ Sound
-			§ Frequencies that humans can't hear
-			§ However, might actually have unexpected psychological/brain-related effects…?
-		○ Testing
-			§ Possibly a functional demo with UV light (in bird's visible range) and a demo with light in 380-400 nm spectrum (common visible range between humans and birds)
 ![image](https://user-images.githubusercontent.com/90936268/236611359-cb4f53b5-ce88-4366-8d6f-9c1ddf144e0c.png)
 
 # 2023-01-30 
