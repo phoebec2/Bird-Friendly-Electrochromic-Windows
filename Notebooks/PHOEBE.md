@@ -45,7 +45,6 @@
 			§ However, might actually have unexpected psychological/brain-related effects…?
 		○ Testing
 			§ Possibly a functional demo with UV light (in bird's visible range) and a demo with light in 380-400 nm spectrum (common visible range between humans and birds)
-![image](https://user-images.githubusercontent.com/90936268/236610979-948b5dc1-a3fb-4dce-a324-b0e0770803dc.png)
 
 # 2023-01-30 
 
@@ -54,52 +53,59 @@
 		○ Research later if IR or Laser sensors might actually be better, since Ultrasonic Sensors may be inaccurate sometimes…
 		 
 		○ Motion/object detection (ToF sensors…?) -> microcontroller -> raspberry pi -> camera (captures photo) -> raspberry pi (image processing) -> microcontroller (controls) -> electrochromic glass + UV lights
-![image](https://user-images.githubusercontent.com/90936268/236610979-948b5dc1-a3fb-4dce-a324-b0e0770803dc.png)
 
+# 2023-02-07
 
-# 2021-02-12 - Acquiring a Battery
+	- High Level Requirements
+		○ The system can successfully detect when a bird is approaching or in close proximity
+			§ Before passing the 1.37 meter mark, so maybe at 2 meters…?
+		○ The system can turn the electrochromic panels opaque in response to bird detection
+		○ The system can direct UV light in the 300-380 nm range at an approaching bird
+	- 1 Subsystem Requirement
+		○ Ultrasonic sensors (2 cm - 4 m range) will be able to locate the approximate location of the bird by using grid indices
+	- Concerns: do flashing UV lights pose too great of a safety risk?
+Might raise the stress level of birds and cause them to react differently than we want![image](https://user-images.githubusercontent.com/90936268/236611114-2d75bcd4-cf8d-4a50-8261-5f4b075185c2.png)
 
-I have contacted several custom battery builders in the esk8 (custom electric longboard builders) forum, located [here](https://forum.esk8.news/).  Builder Zach Tetra from [Black Fox Builds](https://forum.esk8.news/t/black-fox-boards-east-coast-battery-building-services/37402) has the following pair of 6s4p batteries that he can send immediately:
+# 2023-02-08 
 
-![](blackfox_battery.png)
+	- Things to consider
+		○ Make sure people don't hang on the poles for the 3D frame, if they can actually reach it
+		○ Make the hardware water proof - in the case of rainy weather
+			§ Ultrasonic sensors/the circuit should be rained on…
+	- (3 ultrasonic sensors)*(4 frame sides) + (3 ultrasonic sensors across) = 15 ultrasonic sensors for now….
+		○ Would we have enough pins for this….?
+![image](https://user-images.githubusercontent.com/90936268/236611170-1c987eb7-538f-4082-bb55-194141b9f43a.png)
 
-For our project, I would prefer a 12s battery for adequate performance. The pack above is made up of Samsung 30Q cells, I found more info [here](https://lygte-info.dk/review/batteries2012/Samsung%20INR18650-30Q%203000mAh%20(Pink)%20UK.html). We can convert the 6s4p pack into a 12s2p pack, which will be nearly 200Whr.
-This will be plenty, for up to 10 miles of range. I have never worked on batteries before. When researching how to do so, I found this over-an-hour-long video [here]( https://www.youtube.com/watch?v=7QjO90LG67g), that clearly depicts and describes everything required to safely build a reliable battery pack.
+# 2023-02-10 
 
-I will need access to a spot welder to complete this - we’ve reached out to Illini Solar Car, as they have claimed the spot welder on campus.
+Machine shop had concerns with the physical size of the frame…how do we make the frame smaller?![image](https://user-images.githubusercontent.com/90936268/236611206-ffa06482-6923-4e03-a61c-0599c94666ce.png)
 
-# 2021-02-18 - Battery Update
+# 2023-02-13 
 
-Received the pair of 6s4p batteries, along with battery building supplies such as a Smart BMS, nickel strips, fishpaper, 10 gauge wire, and more. Upon closer inspection, splitting the 6s4p pack into a 12s2p pack is difficult, as there is no leverage to remove the existing H-shaped nickel strips.
+	- FliR Lepton thermal camera is very small
+	- Discuss hardware circuit design with Matthew Qi tomorrow at 3:30
+	- Come to OH at 4 again to discuss the video processing portion with Yixuan
+![image](https://user-images.githubusercontent.com/90936268/236611240-c62e9218-ea1b-47b3-b43b-7f40d0c03b74.png)
 
-The pair of 6s4p packs take up a lot less space than I expected. It would be easier to make a 12s4p pack out of them instead, which will provide us the same power as I required from earlier at nearly 500 Whr. Additionally, I have gotten in contact with a coworker who has a battery spot welder I can use.
+# 2023-02-14
 
-Once I have planned out the build and assembled the materials, we should be good to go to complete the battery.
-
-# 2021-02-24 - Investigation acquiring RPM data from VESCs
-
-I have done some investigating of the VESC hardware and software and discovered that you can query them for RPM telemetry data. This removes the need for us to develop RPM sensing
-around the motorized wheels.
-
-To accomplish this however, we may need to talk to each VESC individually. Having a dual VESC is convenient, but this may interfere with our ability to query data from them properly. Some dual VESCs have dual MCUs, other more recent designs have single MCUs as shown earlier in this journal.
-
-# 2021-03-01 - Parts update
-
-From further discussions about the issue of communicating to both VESCs individually or to a ‘master’ VESC to both, we have decided to go with a pair of single VESCs. For example, we could attach a CANBUS cable between the pair of VESCs in order to allow them to communicate with each other, or simply split two PPM signals to pass throttle information individually, among various other choices. In other words, the VESCs can work in tandem with one another or can be independent from each other.
-
-I have assembled a significant portion of the board at this point, as seen here in this picture below:
-
-![](parts_update.png)
-
-Some issues:
-
-- The motor pulley is scraping on the motor mount. This is an issue of tolerances, as the
-motor mount I am using is 6mm wide and the Motor shaft has a tolerance of 6.2mm +-
-0.5mm. In theory, we should have 0.2mm of space, but the margin of error was not in our
-favor.
-  ![](motor_pulley_scraping.png)
-- The threads on the ends of the trucks are not deep enough. We need bearing spacers to
-push the wheel out.
-  ![](bearing_spacer.png)
-  
-  
+	- Video Processing discussion with Yixuan
+		○ Recommends transfer learning for bird recognition 
+	- Sensor beam across frame 20x92 cm frame sides
+	
+	
+	- Sensor placement across 20x20 cm frame side (the side across from the windows)
+	
+	- Order these parts soon
+		○ Object Detection Sensors - Ultrasonic Sensors 
+			§ https://www.digikey.com/en/products/detail/adafruit-industries-llc/3942/9658069?utm_adgroup=Temperature%20Sensors%20-%20NTC%20Thermistors&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_Product_Sensors%2C%20Transducers_NEW&utm_term=&utm_content=Temperature%20Sensors%20-%20NTC%20Thermistors&gclid=Cj0KCQiA8t2eBhDeARIsAAVEga3-LKmSwy4SyDMLpOr_Q5RPnhG3XU94vhnl-hMCGgMaYcTvqeA6XF4aAudnEALw_wcB
+			§ 12 + 2 extra
+		○ Electrochromic glass panels - 10x10 cm
+			§ 4*1 glass block
+		○ Microcontroller that connects with:
+			§ 12 ultrasonic sensors
+				□ 2 pins per sensor (trigger and echo pins)
+			§ Raspberry Pi
+			§ 4 Electrochromic glass panels
+				□ 1 control pin per glass panel
+![image](https://user-images.githubusercontent.com/90936268/236611286-e53c29bf-32c3-40de-8fa9-8de94756035f.png)
