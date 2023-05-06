@@ -46,34 +46,15 @@
 		○ Testing
 			§ Possibly a functional demo with UV light (in bird's visible range) and a demo with light in 380-400 nm spectrum (common visible range between humans and birds)
 
-# 2021-02-10 - Parts Updates
+# 2023-01-30 
 
-Currently, I am looking at Dual VESC options that can simplify our design, minimize space.
-Here are some examples:
+	- Bird Detection
+		○ https://www.fierceelectronics.com/sensors/what-ir-sensor
+		○ Research later if IR or Laser sensors might actually be better, since Ultrasonic Sensors may be inaccurate sometimes…
+		 
+		○ Motion/object detection (ToF sensors…?) -> microcontroller -> raspberry pi -> camera (captures photo) -> raspberry pi (image processing) -> microcontroller (controls) -> electrochromic glass + UV lights
+![image](https://user-images.githubusercontent.com/90936268/236610979-948b5dc1-a3fb-4dce-a324-b0e0770803dc.png)
 
-![](esc1.png)
-
-[link](https://flipsky.net/collections/electronic-products/products/dual-fsesc6-6-based-upon-vesc6-with-aluminum-heatsink)
-
-This one has dual MCUs, with a physical switch to include or disclude the CAN connection
-between both of the VESCs.
-
-![](esc2.png)
-
-[link](https://massivestator.com/products/focbox-unity-dual-motor-controller)
-
-This one has a single MCU that acts for both motors.
-
-I am currently speaking with Loaded Boards, a longboard deck and skateboard wheel company that Boosted had a business relationship with. They are willing to send a B-grade deck and wheels at a lower price. Wheel durometer options are 77a, 80a, 83a. The lower the durometer number, the softer the
-wheel urethane.
-
-After discussions with the team, we decided on the hardest wheel option, 83a, as it would slip easier than the softer wheels. We want to make sure we can demonstrate traction control in our project.
-
-For weight sensing, I also came across a flexiforce sensor that we may consider using. The board will weigh about 20 pounds, we ideally would like a range of double that. This flexiforce sensor is high on my list.
-
-![](flexiforce.png)
-
-[link](https://www.tekscan.com/products-solutions/force-sensors/a401?tab=specifications-performance)
 
 # 2021-02-12 - Acquiring a Battery
 
