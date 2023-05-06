@@ -45,6 +45,7 @@
 			§ However, might actually have unexpected psychological/brain-related effects…?
 		○ Testing
 			§ Possibly a functional demo with UV light (in bird's visible range) and a demo with light in 380-400 nm spectrum (common visible range between humans and birds)
+![image](https://user-images.githubusercontent.com/90936268/236610979-948b5dc1-a3fb-4dce-a324-b0e0770803dc.png)
 
 # 2023-01-30 
 
