@@ -69,12 +69,6 @@ Might raise the stress level of birds and cause them to react differently than w
 
 # 2023-02-08 
 
-Things to consider
-	○ Make sure people don't hang on the poles for the 3D frame, if they can actually reach it
-	○ Make the hardware water proof - in the case of rainy weather
-		§ Ultrasonic sensors/the circuit should be rained on…
-(3 ultrasonic sensors)*(4 frame sides) + (3 ultrasonic sensors across) = 15 ultrasonic sensors for now….
-	○ Would we have enough pins for this….?
 ![image](https://user-images.githubusercontent.com/90936268/236611170-1c987eb7-538f-4082-bb55-194141b9f43a.png)
 
 # 2023-02-10 
