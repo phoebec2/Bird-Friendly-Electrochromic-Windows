@@ -4,7 +4,7 @@
 
 # 2023-01-26 
 
-![](https://user-images.githubusercontent.com/90936268/236611359-cb4f53b5-ce88-4366-8d6f-9c1ddf144e0c.png)
+![image](https://user-images.githubusercontent.com/90936268/236611359-cb4f53b5-ce88-4366-8d6f-9c1ddf144e0c.png)
 
 # 2023-01-30 
 
